@@ -1,0 +1,8 @@
+Python 3.9
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+src/myapp/__init__.py          1      0   100%
+src/myapp/__version__.py       4      1    75%
+src/myapp/main.py             12      2    83%
+----------------------------------------------
+TOTAL                         17      3    82%

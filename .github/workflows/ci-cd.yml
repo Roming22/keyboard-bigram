@@ -1,0 +1,50 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - dev
+      - release/*
+  pull_request:
+    branches:
+      - dev
+      - release/*
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Install environment
+        run: |
+          date
+          make environment
+      - name: Run tests
+        run: |
+          date
+          make test
+          date
+  CD:
+    needs: CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Build and upload image
+        env:
+          IMAGE_REPOSITORY_TOKEN: ${{ secrets.IMAGE_REPOSITORY_TOKEN }}
+          IMAGE_REPOSITORY_URL: docker.io
+          IMAGE_REPOSITORY_USER: roming22
+        run: |
+          date
+          make build
+          date
+          make upload
+          date

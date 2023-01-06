@@ -1,0 +1,110 @@
+score:
+  layers:
+    layer1: 0
+    layer2: 15
+    layer3: 30
+    layer4: 32
+  rows:
+    home: 0
+    top: 1
+    thumb1: 2
+    thumb2: 3
+  hands:
+    left: 0
+    right: 1
+layout:
+  definitions:
+    layers:
+      - layer1
+      - layer2
+      # - layer3
+      # - layer4
+    rows:
+      - top
+      - home
+      # - thumb1
+      # - thumb2
+    hands:
+      - left
+      - right
+    columns:
+      left:
+        - pinky
+        - ring
+        - major
+        - index
+        - thumb
+      right:
+        - thumb
+        - index
+        - major
+        - ring
+        - pinky
+  rows:
+    top:
+      left:
+        - ring
+        - major
+        - index
+      right:
+        - index
+        - major
+        - ring
+    home:
+      left:
+        - pinky
+        - ring
+        - major
+        - index
+      right:
+        - index
+        - major
+        - ring
+        - pinky
+    thumb1:
+      left:
+        - thumb
+      right:
+        - thumb
+    # thumb2:
+    #   left:
+    #     - thumb
+    #   right:
+    #     - thumb
+constraints:
+  layer1:
+    thumb1:
+      left:
+        thumb: "\\s"
+      #   right:
+      #     thumb: "#2"
+      # thumb2:
+      #   left:
+      #     thumb: "mh"
+      right:
+        thumb: "\\n"
+  layer2:
+    thumb1:
+      left:
+        thumb: "\\s"
+      right:
+        thumb: "#3"
+    # thumb2:
+    #   left:
+    #     thumb: "#1"
+    #   right:
+    #     thumb: "#4"
+  # layer3:
+  #   thumb1:
+  #     left:
+  #       thumb: "\\s"
+  #   thumb2:
+  #     left:
+  #       thumb: "#1"
+  # layer4:
+  #   thumb1:
+  #     left:
+  #       thumb: "\\s"
+  #   thumb2:
+  #     left:
+  #       thumb: "#1"

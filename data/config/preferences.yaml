@@ -1,0 +1,26 @@
+score:
+  fingers:
+    left:
+      thumb: 7
+      index: 1
+      major: 3
+      ring: 5
+      pinky: 11
+    right:
+      thumb: 8
+      index: 2
+      major: 4
+      ring: 6
+      pinky: 12
+  rolls:
+    bigram: -2
+    trigram: -2
+corpus:
+  i18n:
+    en-us:
+      weight: 4
+  code:
+    python:
+      weight: 2
+    shell:
+      weight: 2

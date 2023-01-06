@@ -1,0 +1,51 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/python-3
+{
+    "name": "Python",
+    "build": {
+        "dockerfile": "../tools/tooling/container/Dockerfile",
+        "context": "..",
+        "target": "dev"
+    },
+    "containerEnv": {
+        "IDE": "VSCODE",
+    },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "GitHub.vscode-pull-request-github",
+        "ms-python.python",
+        "ritwickdey.liveserver",
+        "timonwong.shellcheck",
+        "yzhang.markdown-all-in-one",
+    ],
+    "postCreateCommand": "make vscode",
+    "runArgs": [
+        // "--privileged",
+        "--volume=${localWorkspaceFolder}:/workspace:Z"
+    ],
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        },
+        "markdown.extension.toc.levels": "2..6",
+        "python.formatting.blackPath": ".venv/bin/black",
+        "python.formatting.provider": "black",
+        "python.linting.enabled": true,
+        "python.linting.mypyEnabled": true,
+        "python.linting.mypyPath": ".venv/bin/mypy",
+        "python.linting.pylintEnabled": true,
+        "python.linting.pylintPath": ".venv/bin/pylint",
+        "python.sortImports.args": [
+            "--profile=black"
+        ],
+        "python.sortImports.path": ".venv/bin/isort",
+        "python.terminal.activateEnvironment": true,
+        "python.testing.pytestArgs": [
+            "--cov=src"
+        ],
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestPath": ".venv/bin/pytest",
+    },
+}
